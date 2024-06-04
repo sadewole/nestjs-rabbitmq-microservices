@@ -20,6 +20,9 @@ import { Order, OrderSchema } from './schemas/order.schema';
       validationSchema: Joi.object({
         MONGO_URI: Joi.string().required(),
         PORT: Joi.number().required(),
+        RABBIT_MQ_URI: Joi.number().required(),
+        RABBIT_MQ_BILLING_QUEUE: Joi.number().required(),
+        RABBIT_MQ_AUTH_QUEUE: Joi.number().required(),
       }),
       envFilePath: './apps/orders/.env',
     }),

@@ -22,6 +22,7 @@ import { UsersModule } from './users/users.module';
         MONGO_URI: Joi.string().required(),
         RABBIT_MQ_URI: Joi.string().required(),
         RABBIT_MQ_AUTH_QUEUE: Joi.string().required(),
+        PORT: Joi.string().required(),
       }),
       envFilePath: './apps/auth/.env',
     }),
