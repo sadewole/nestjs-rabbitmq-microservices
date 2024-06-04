@@ -12,6 +12,8 @@ services:
     depends_on:
       - mongodb
       - rabbitmq
+      - billing
+      - auth
     volumes:
       - .:/usr/src/app
       - /usr/src/app/node_modules
@@ -29,6 +31,7 @@ services:
     depends_on:
       - mongodb
       - rabbitmq
+      - auth
     volumes:
       - .:/usr/src/app
       - /usr/src/app/node_modules
@@ -47,6 +50,8 @@ services:
     volumes:
       - .:/usr/src/app
       - /usr/src/app/node_modules
+    ports:
+      - '3001:3001'
 
   rabbitmq:
     image: rabbitmq

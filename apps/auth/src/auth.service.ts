@@ -14,25 +14,20 @@ export class AuthService {
     private readonly configService: ConfigService,
     private readonly jwtService: JwtService,
   ) {}
-
   async login(user: User, response: Response) {
     const tokenPayload: TokenPayload = {
       userId: user._id.toHexString(),
     };
-
     const expires = new Date();
     expires.setSeconds(
       expires.getSeconds() + this.configService.get('JWT_EXPIRATION'),
     );
-
     const token = this.jwtService.sign(tokenPayload);
-
     response.cookie('Authentication', token, {
       httpOnly: true,
       expires,
     });
   }
-
   logout(response: Response) {
     response.cookie('Authentication', '', {
       httpOnly: true,

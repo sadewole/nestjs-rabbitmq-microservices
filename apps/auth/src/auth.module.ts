@@ -19,7 +19,9 @@ import { UsersModule } from './users/users.module';
       validationSchema: Joi.object({
         JWT_SECRET: Joi.string().required(),
         JWT_EXPIRATION: Joi.string().required(),
-        MONGODB_URI: Joi.string().required(),
+        MONGO_URI: Joi.string().required(),
+        RABBIT_MQ_URI: Joi.string().required(),
+        RABBIT_MQ_AUTH_QUEUE: Joi.string().required(),
       }),
       envFilePath: './apps/auth/.env',
     }),
